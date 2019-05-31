@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SubCategory Product</title>
+</head>
+<body>
+<h1>Category</h1>
+<div class="container">
+    <table>
+
+        <tbody>
+        <tr th:each="category : ${categoryList}">
+            <td>
+                <a th:href="@{/category/{id} (id = ${category.id})}"><h1 th:text="${category.name}"></h1></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/basket}">Basket</a>
+</div>
+</body>
+</html>

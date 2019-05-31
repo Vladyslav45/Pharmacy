@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sign up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link th:href="@{/css/signup.css}" href="/static/css/signup.css" rel="stylesheet" type="text/css">
+
+</head>
+
+
+<body>
+<div class="signup">
+        <img src="https://websait.ua/wp-content/uploads/2015/05/avatar.png" class="avatar">
+
+        <h1>Registration account</h1>
+        <form th:action="@{/signup}" method="post" th:object="${user}">
+            <div class="textbox">
+                <i class="fas fa-user" aria-hidden="true"></i>
+                <input type="text" th:field="*{name}" class="form-control" placeholder="Name" required autofocus>
+                <span class="text-danger align-middle" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            </div>
+
+            <div class="textbox">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+                <input type="text" th:field="*{email}" class="form-control" placeholder="username@gmail.com" required>
+                <span class="text-danger align-middle" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            </div>
+
+            <div class="textbox">
+                <i class="fas fa-lock" aria-hidden="true"></i>
+                <input type="password" th:field="*{password}" class="form-control" placeholder="Password" required>
+                <span class="text-danger align-middle" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+            </div>
+
+            <div class="textbox">
+                <i class="fas fa-phone" aria-hidden="true"></i>
+                <input type="text" th:field="*{phoneNumber}" class="form-control" pattern="[0-9]{3}[0-9]{3}[0-9]{3}" placeholder="123456789"  required>
+                <span class="text-danger align-middle" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></span>
+            </div>
+
+            <input type="submit" value="Registered">
+        </form>
+</div>
+</body>
+</html>

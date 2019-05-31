@@ -1,0 +1,85 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: url(https://www.enhancedcare.ca/wp-content/uploads/2016/02/pharmacy.jpg);
+    background-size: cover;
+    font-family: sans-serif;
+}
+
+.signup{
+    width: 480px;
+    height: 570px;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 60px 40px;
+    background: rgba(253, 254, 254,.6);
+}
+
+.avatar{
+    width: 150px;
+    height: 150px;
+    border-radius: 60%;
+    position: absolute;
+    top: -80px;
+    left: calc(45% - 50px);
+}
+
+.signup h1{
+    float: center;
+    font-size: 30px;
+    text-align: center;
+    color: black;
+    border-bottom: 6px solid #4caf50;
+    margin-bottom: 50px;
+}
+
+.textbox{
+    width: 100%;
+    overflow: hidden;
+    font-size: 20px;
+    color: black;
+    padding: 8px 0;
+    margin: 8px 0;
+    border-bottom: 1px solid #4caf50;
+}
+
+.textbox i{
+    width: 26px;
+    float: left;
+    text-align: center;
+}
+
+.textbox input{
+    border: none;
+    outline: none;
+    background: none;
+    color: black;
+    font-size: 18px;
+    width: 80%;
+    float: left;
+    margin: 0 10px;
+}
+
+.signup input[type="submit"]
+{
+    margin-top: 20px;
+    border: 2px solid #4caf50;
+    outline: none;
+    width: 100%;
+    background: red;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.signup input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: green;
+    color: white;
+}

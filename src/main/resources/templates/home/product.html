@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h1>This table product</h1>
+
+<table class="table table-bordered table-striped" id="customers">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>INN</th>
+            <th>Recipe</th>
+            <th>Category</th>
+            <th>SubCategory</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="preparation :${productList}">
+            <td th:text="${preparation.name}"></td>
+            <td th:text="${preparation.description}"></td>
+            <td th:text="${preparation.price}"></td>
+            <td th:text="${preparation.INN}"></td>
+            <td th:text="${preparation.recipe}"></td>
+            <td th:text="${preparation.categoryPreparation.name}"></td>
+            <td th:text="${preparation.subCategoryPreparation.name}"></td>
+            <td>
+                <a th:href="@{/product/update/{id} (id = ${preparation.id})}">Update</a>
+            </td>
+            <td>
+                <a th:href="@{/product/delete/{id}(id = ${preparation.id})}">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<a th:href="@{/product/add}">Add product</a>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <a th:href="@{/home}">Back</a>
+    </div>
+</div>
+</form>
+</body>
+</html>

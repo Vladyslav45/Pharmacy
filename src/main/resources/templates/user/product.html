@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        /*.card {*/
+  /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*/
+  /*max-width: 340px;*/
+  /*margin: auto;*/
+  /*text-align: center;*/
+  /*font-family: arial;*/
+/*}*/
+
+/*.price {*/
+  /*color: grey;*/
+  /*font-size: 22px;*/
+/*}*/
+
+/*.card a {*/
+  /*border: none;*/
+  /*outline: 0;*/
+  /*padding: 12px;*/
+  /*color: white;*/
+  /*background-color: #000;*/
+  /*text-align: center;*/
+  /*cursor: pointer;*/
+  /*width: 100%;*/
+  /*font-size: 18px;*/
+/*}*/
+
+/*.card a:hover {*/
+  /*opacity: 0.7;*/
+/*}*/
+
+        * { margin: 0px; padding: 0px; }
+        body {
+            font-family: "Open Sans", sans-serif;
+            overflow:hidden;
+        }
+        #grid{
+            width: 1335px;
+            position: absolute;
+            left: 340px;
+            height: 1200px;
+            top: 180px;
+        }
+    </style>
+</head>
+<body>
+<div id="grid" th:each="preparation : ${preparationList}">
+    <div class="product">
+        <div class="info-large">
+            <h4 th:text="${preparation.name}"></h4>
+            <div class="sku">
+                <h4 th:href="${preparation.INN}"></h4>
+            </div>
+
+
+            <h3>Description</h3>
+            <div class="desc">
+                <span th:text="${preparation.description}"></span>
+                <!--<ul>-->
+                    <!--<li><a href="" style="background:#222"><span></span></a></li>-->
+                    <!--<li><a href="" style="background:#6e8cd5"><span></span></a></li>-->
+                    <!--<li><a href="" style="background:#f56060"><span></span></a></li>-->
+                    <!--<li><a href="" style="background:#44c28d"><span></span></a></li>-->
+                <!--</ul>-->
+            </div>
+
+            <div class="price-big">
+                <span th:text="${preparation.price}"></span>
+            </div>
+
+            <!--<h3>SIZE</h3>-->
+            <!--<div class="sizes-large">-->
+                <!--<span>XS</span>-->
+                <!--<span>S</span>-->
+                <!--<span>M</span>-->
+                <!--<span>L</span>-->
+                <!--<span>XL</span>-->
+                <!--<span>XXL</span>-->
+            <!--</div>-->
+
+            <button class="add-cart-large" th:href="@{/userproduct/addbasket/{id} (id = ${preparation.id})}">Add To Cart</button>
+
+        </div>
+
+<!--<div class="card">-->
+    <!--<form th:each="preparation : ${preparationList}">-->
+    <!--<h1 th:text="${preparation.name}"></h1>-->
+    <!--<p class="price" th:text="${preparation.price}">zł</p>-->
+    <!--<p th:text="${preparation.description}"></p>-->
+    <!--<p th:text="${preparation.INN}"></p>-->
+    <!--<p th:text="${preparation.recipe}"></p>-->
+
+    <!--<p><a th:href="@{/userproduct/addbasket/{id} (id = ${preparation.id})}">Reservation</a></p>-->
+    <!--</form>-->
+    <!--<a th:href="@{/home}">Back</a>-->
+<!--</div>-->
+</body>
+</html>
