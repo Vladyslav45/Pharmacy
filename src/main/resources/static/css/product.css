@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url(https://www.enhancedcare.ca/wp-content/uploads/2016/02/pharmacy.jpg);
+    background-size: cover;
+    font-family: sans-serif;
+}
+
+.card {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+    text-align: center;
+    background: rgba(253, 254, 254, .5);
+    font-family: arial;
+}
+
+.product-card h1, p {
+    /*padding: 2px;*/
+    width: 40px;
+    height: 40px;
+    /*margin-top: 10px;*/
+    line-height: 2px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.product-card a {
+    border: 2px solid #4caf50;
+    outline: none;
+    width: 100%;
+    background: black;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.product-card a:hover {
+    cursor: pointer;
+    background: green;
+    color: white;
+}
+
+.price {
+    color: black;
+    font-size: 22px;
+}
+
+.card a {
+    margin-top: 20px;
+    border: 2px solid #4caf50;
+    outline: none;
+    width: 100%;
+    background: black;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.card a:hover {
+    cursor: pointer;
+    background: red;
+    color: white;
+}
