@@ -8,23 +8,23 @@
 <body>
 <h1>SubCategory</h1>
 <div class="container">
-<table>
-    <thead>
-    <tr>
-        <th>Name SubCategory</th>
-    </tr>
-    </thead>
+    <table>
+        <thead>
+        <tr>
+            <th>Name SubCategory</th>
+        </tr>
+        </thead>
 
-    <tbody>
-    <tr th:each="subcategory : ${subcategoryList}">
-        <td>
-            <a th:href="@{/subcategory/{id} (id = ${subcategory.id})}">
-                <h1  th:text="${subcategory.name}"></h1>
-            </a>
-        </td>
-    </tr>
-    </tbody>
-</table>
+        <tbody>
+        <tr th:each="subcategory : ${subcategoryList}">
+            <td>
+                <a th:href="@{/subcategory/{id} (id = ${subcategory.id})}">
+                    <h1 th:text="${subcategory.name}"></h1>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>

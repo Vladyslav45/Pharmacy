@@ -17,9 +17,13 @@
             padding: 8px;
         }
 
-        #customers tr:nth-child(even){background-color: #f2f2f2;}
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
 
-        #customers tr:hover {background-color: #ddd;}
+        #customers tr:hover {
+            background-color: #ddd;
+        }
 
         #customers th {
             padding-top: 12px;
@@ -35,34 +39,34 @@
 
 <table class="table table-bordered table-striped" id="customers">
     <thead>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>INN</th>
-            <th>Recipe</th>
-            <th>Category</th>
-            <th>SubCategory</th>
-            <th>Update</th>
-            <th>Delete</th>
-        </tr>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>INN</th>
+        <th>Recipe</th>
+        <th>Category</th>
+        <th>SubCategory</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
     </thead>
     <tbody>
-        <tr th:each="preparation :${productList}">
-            <td th:text="${preparation.name}"></td>
-            <td th:text="${preparation.description}"></td>
-            <td th:text="${preparation.price}"></td>
-            <td th:text="${preparation.INN}"></td>
-            <td th:text="${preparation.recipe}"></td>
-            <td th:text="${preparation.categoryPreparation.name}"></td>
-            <td th:text="${preparation.subCategoryPreparation.name}"></td>
-            <td>
-                <a th:href="@{/product/update/{id} (id = ${preparation.id})}">Update</a>
-            </td>
-            <td>
-                <a th:href="@{/product/delete/{id}(id = ${preparation.id})}">Delete</a>
-            </td>
-        </tr>
+    <tr th:each="preparation :${productList}">
+        <td th:text="${preparation.name}"></td>
+        <td th:text="${preparation.description}"></td>
+        <td th:text="${preparation.price}"></td>
+        <td th:text="${preparation.INN}"></td>
+        <td th:text="${preparation.recipe}"></td>
+        <td th:text="${preparation.categoryPreparation.name}"></td>
+        <td th:text="${preparation.subCategoryPreparation.name}"></td>
+        <td>
+            <a th:href="@{/product/update/{id} (id = ${preparation.id})}">Update</a>
+        </td>
+        <td>
+            <a th:href="@{/product/delete/{id}(id = ${preparation.id})}">Delete</a>
+        </td>
+    </tr>
     </tbody>
 </table>
 

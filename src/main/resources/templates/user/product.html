@@ -4,49 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
-    <style>
-        .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 340px;
-  margin: auto;
-  text-align: center;
-  font-family: arial;
-}
-
-.price {
-  color: grey;
-  font-size: 22px;
-}
-
-.card a {
-  border: none;
-  outline: 0;
-  padding: 12px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
-
-.card a:hover {
-  opacity: 0.7;
-}
-    </style>
+    <link th:href="@{/css/product.css}" href="/static/css/product.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="card">
-    <form th:each="preparation : ${preparationList}">
-    <h1 th:text="${preparation.name}"></h1>
-    <p class="price" th:text="${preparation.price}">zł</p>
-    <p th:text="${preparation.description}"></p>
-    <p th:text="${preparation.INN}"></p>
-    <p th:text="${preparation.recipe}"></p>
-
-    <p><a th:href="@{/userproduct/addbasket/{id} (id = ${preparation.id})}">Reservation</a></p>
-    </form>
+    <div class="product-card" th:each="preparation : ${preparationList}">
+        <form>
+            <h1 th:text="${preparation.name}"></h1>
+            <p class="price" th:text="${preparation.price}"></p>
+            <p th:text="${preparation.description}"></p>
+            <p th:text="${preparation.INN}"></p>
+            <p th:text="${preparation.recipe}"></p>
+        </form>
+        <a th:href="@{/userproduct/addbasket/{id} (id = ${preparation.id})}">Reservation</a>
+    </div>
     <a th:href="@{/home}">Back</a>
 </div>
 </body>

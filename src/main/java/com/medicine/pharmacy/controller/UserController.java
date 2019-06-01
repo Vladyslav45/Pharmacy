@@ -8,15 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 public class UserController {
 
@@ -26,8 +26,8 @@ public class UserController {
     @Autowired
     private JavaSenderMail javaSenderMail;
 
-    @GetMapping(value ={"/","/login"})
-    public ModelAndView login(){
+    @GetMapping(value = {"/", "/login"})
+    public ModelAndView login() {
         ModelAndView modelAndView = new ModelAndView();
 
         modelAndView.setViewName("log/login");
@@ -35,7 +35,7 @@ public class UserController {
     }
 
     @GetMapping(value = "/signup")
-    public ModelAndView showFormRegistartion(){
+    public ModelAndView showFormRegistartion() {
         ModelAndView modelAndView = new ModelAndView();
         User user = new User();
         modelAndView.addObject("user", user);
@@ -50,11 +50,11 @@ public class UserController {
 
         User createUser = userService.findUserByEmail(user.getEmail());
 
-        if (createUser != null ){
+        if (createUser != null) {
             result.rejectValue("email", "error.log", "This email already exists!");
         }
 
-        if (result.hasErrors()){
+        if (result.hasErrors()) {
             modelAndView.setViewName("log/signup");
         } else {
             userService.saveUser(user);
@@ -69,7 +69,7 @@ public class UserController {
 
     @GetMapping(value = "/home")
     @PreAuthorize("hasAuthority('ROLE_ADMIN') or hasAuthority('ROLE_USER')")
-    public ModelAndView home(){
+    public ModelAndView home() {
         ModelAndView modelAndView = new ModelAndView();
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(authentication.getName());
@@ -81,7 +81,7 @@ public class UserController {
     }
 
     @GetMapping(value = "/access_denied")
-    public ModelAndView accessDenied(){
+    public ModelAndView accessDenied() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("errors/access_denied");
 

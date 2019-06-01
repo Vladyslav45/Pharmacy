@@ -3,7 +3,8 @@
       xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css" rel="stylesheet"
+          id="bootstrap-css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,24 +15,24 @@
 <body>
 
 <div class="login-box">
-        <h1>Login</h1>
-        <form th:action="@{/login}" method="post">
+    <h1>Login</h1>
+    <form th:action="@{/login}" method="post">
 
-            <div class="textbox">
-                <i class="fas fa-envelope" aria-hidden="true"></i>
-                <input type="email" name="email" class="form-control" placeholder="Email" required autofocus>
-            </div>
+        <div class="textbox">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+            <input type="email" name="email" class="form-control" placeholder="Email" required autofocus>
+        </div>
 
 
-            <div class="textbox">
-                <i class="fas fa-lock" aria-hidden="true"></i>
-                <input type="password" name="password" class="form-control" placeholder="Password" required>
-            </div>
+        <div class="textbox">
+            <i class="fas fa-lock" aria-hidden="true"></i>
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
+        </div>
 
-            <input type="submit" value="Login">
+        <input type="submit" value="Login">
 
-            <a th:href="@{/signup}">Don't have an account?</a>
-        </form>
+        <a th:href="@{/signup}">Don't have an account?</a>
+    </form>
 </div>
 </body>
 </html>

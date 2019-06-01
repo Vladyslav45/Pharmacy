@@ -9,10 +9,12 @@ import com.medicine.pharmacy.service.ProductService;
 import com.medicine.pharmacy.service.SubCategoryPreparationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -23,16 +25,13 @@ public class ProductController {
     private ProductService productService;
 
     @Autowired
-    private ProductRepository productRepository;
-
-    @Autowired
     private CategoryPreparationService categoryPreparationService;
 
     @Autowired
     private SubCategoryPreparationService subCategoryPreparationService;
 
     @GetMapping(value = "/product")
-    public ModelAndView product(){
+    public ModelAndView product() {
         ModelAndView modelAndView = new ModelAndView();
         List<Preparation> list = productService.findAll();
         modelAndView.addObject("productList", list);
@@ -41,9 +40,9 @@ public class ProductController {
     }
 
     @GetMapping(value = "/product/add")
-    public ModelAndView addProduct(){
+    public ModelAndView addProduct() {
         ModelAndView modelAndView = new ModelAndView();
-        List<CategoryPreparation>categoryPreparations = categoryPreparationService.findAll();
+        List<CategoryPreparation> categoryPreparations = categoryPreparationService.findAll();
         modelAndView.addObject("listCategory", categoryPreparations);
 //        categoryPreparations.forEach(categoryPreparation -> {
 //            List<SubCategoryPreparation> subCategoryPreparation = subCategoryPreparationService.findAllByCategoryId(categoryPreparation.getId());
@@ -69,7 +68,7 @@ public class ProductController {
     }
 
     @GetMapping(value = "/product/delete/{id}")
-    public ModelAndView deleteProduct(@PathVariable("id") Long id){
+    public ModelAndView deleteProduct(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView();
 
         productService.delete(id);
@@ -79,7 +78,7 @@ public class ProductController {
     }
 
     @GetMapping(value = "/product/update/{id}")
-    public ModelAndView editForm(@PathVariable("id") Long id){
+    public ModelAndView editForm(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView();
         Preparation preparation = productService.getById(id);
         List<CategoryPreparation> categoryPreparations = categoryPreparationService.findAll();
@@ -93,7 +92,7 @@ public class ProductController {
     }
 
     @PostMapping(value = "/product/update/{id}")
-    public ModelAndView updatePreparation(Preparation preparation){
+    public ModelAndView updatePreparation(Preparation preparation) {
         ModelAndView modelAndView = new ModelAndView();
 
         Preparation updatePreparation = productService.update(preparation);

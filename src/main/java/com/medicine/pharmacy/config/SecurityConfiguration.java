@@ -66,7 +66,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                     .rememberMe()
                 .and()
-                    .exceptionHandling().accessDeniedPage("/access_denied");
+                    .csrf().disable();
     }
 
     @Bean

@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css" rel="stylesheet"
+          id="bootstrap-css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -21,7 +22,7 @@
     </div>
 
     <!-- Product #1 -->
-    <div th:each="basketItem : ${basketList}" >
+    <div th:each="basketItem : ${basketList}">
         <div class="item">
             <div class="buttons">
                 <a class="delete-btn" th:href="@{/basket/delete/{id} (id = ${basketItem.id})}"></a>
@@ -38,11 +39,11 @@
                 <h5>Count</h5>
                 <span th:text="${basketItem.count}"></span>
                 <!--<button class="plus-btn" type="button" name="button">-->
-                    <!--<img src="plus.svg" alt="" />-->
+                <!--<img src="plus.svg" alt="" />-->
                 <!--</button>-->
                 <!--<input type="text" name="name" value="1">-->
                 <!--<button class="minus-btn" type="button" name="button">-->
-                    <!--<img src="minus.svg" alt="" />-->
+                <!--<img src="minus.svg" alt="" />-->
                 <!--</button>-->
             </div>
 
@@ -64,28 +65,28 @@
     </div>
 </div>
 <!--<table class="table table-bordered table-striped" id="customers">-->
-    <!--<thead>-->
-    <!--<tr>-->
-        <!--<th>Name</th>-->
-        <!--<th>Price</th>-->
-        <!--<th>INN</th>-->
-        <!--<th>Recipe</th>-->
-        <!--<th>Count</th>-->
-        <!--<th>AllPrice</th>-->
-        <!--<th>Delete</th>-->
-    <!--</tr>-->
-    <!--</thead>-->
-    <!--<tbody>-->
-    <!--<tr th:each="basket :${basketList}">-->
-        <!--<td th:text="${basket.preparation.name}"></td>-->
-        <!--<td th:text="${basket.preparation.price}"></td>-->
-        <!--<td th:text="${basket.preparation.INN}"></td>-->
-        <!--<td th:text="${basket.preparation.recipe}"></td>-->
-        <!--<td th:text="${basket.count}"></td>-->
-        <!--<td th:text="${basket.price}"></td>-->
-        <!--<td><a th:href="@{/basket/delete/{id} (id = basket.preparation.id)}">Delete</a></td>-->
-    <!--</tr>-->
-    <!--</tbody>-->
+<!--<thead>-->
+<!--<tr>-->
+<!--<th>Name</th>-->
+<!--<th>Price</th>-->
+<!--<th>INN</th>-->
+<!--<th>Recipe</th>-->
+<!--<th>Count</th>-->
+<!--<th>AllPrice</th>-->
+<!--<th>Delete</th>-->
+<!--</tr>-->
+<!--</thead>-->
+<!--<tbody>-->
+<!--<tr th:each="basket :${basketList}">-->
+<!--<td th:text="${basket.preparation.name}"></td>-->
+<!--<td th:text="${basket.preparation.price}"></td>-->
+<!--<td th:text="${basket.preparation.INN}"></td>-->
+<!--<td th:text="${basket.preparation.recipe}"></td>-->
+<!--<td th:text="${basket.count}"></td>-->
+<!--<td th:text="${basket.price}"></td>-->
+<!--<td><a th:href="@{/basket/delete/{id} (id = basket.preparation.id)}">Delete</a></td>-->
+<!--</tr>-->
+<!--</tbody>-->
 <!--</table>-->
 <!--<a th:href="@{/basket/buy}">Buy</a>-->
 <!--<a th:href="@{/home}">Back</a>-->

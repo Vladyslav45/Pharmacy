@@ -1,10 +1,8 @@
 package com.medicine.pharmacy.controller;
 
 import com.medicine.pharmacy.model.CategoryPreparation;
-import com.medicine.pharmacy.model.Preparation;
 import com.medicine.pharmacy.model.SubCategoryPreparation;
 import com.medicine.pharmacy.service.CategoryPreparationService;
-import com.medicine.pharmacy.service.ProductService;
 import com.medicine.pharmacy.service.SubCategoryPreparationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +26,7 @@ public class CategoryController {
 
 
     @GetMapping(value = "/category")
-    public ModelAndView showAllCategory(ModelAndView modelAndView){
+    public ModelAndView showAllCategory(ModelAndView modelAndView) {
         List<CategoryPreparation> categoryPreparationList = categoryPreparationService.findAll();
         modelAndView.addObject("categoryList", categoryPreparationList);
         modelAndView.setViewName("user/categoryproduct");
@@ -37,7 +35,7 @@ public class CategoryController {
     }
 
     @GetMapping(value = "/category/{id}")
-    public ModelAndView showSubCategoryByCategory(ModelAndView modelAndView, @PathVariable("id") Long id){
+    public ModelAndView showSubCategoryByCategory(ModelAndView modelAndView, @PathVariable("id") Long id) {
         CategoryPreparation categoryPreparation = categoryPreparationService.getById(id);
         List<SubCategoryPreparation> subCategoryPreparations = subCategoryPreparationService.findAllByCategoryId(categoryPreparation.getId());
 

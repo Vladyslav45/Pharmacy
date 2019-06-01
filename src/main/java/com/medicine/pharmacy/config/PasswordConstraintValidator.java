@@ -5,8 +5,6 @@ import org.passay.*;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class PasswordConstraintValidator implements ConstraintValidator<ValidPassword, String> {
 
@@ -26,7 +24,7 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
             return true;
         }
         context.disableDefaultConstraintViolation();
-        context.buildConstraintViolationWithTemplate(String.join(",",validator.getMessages(result)))
+        context.buildConstraintViolationWithTemplate(String.join(",", validator.getMessages(result)))
                 .addConstraintViolation();
 //        List<String> messages = validator.getMessages(result);
 //        String messageTemplate = String.join(",", messages);

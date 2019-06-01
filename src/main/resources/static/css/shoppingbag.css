@@ -4,11 +4,11 @@
 
 html,
 body {
-    width: 100%;
-    height: 100%;
     margin: 0;
-    background: url("https://www.enhancedcare.ca/wp-content/uploads/2016/02/pharmacy.jpg");
-    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    background: url(https://www.enhancedcare.ca/wp-content/uploads/2016/02/pharmacy.jpg);
+    background-size: cover;
+    font-family: sans-serif;
 }
 
 .shopping-cart {
@@ -16,7 +16,7 @@ body {
     height: 423px;
     margin: 80px auto;
     background: #FFFFFF;
-    box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+    box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.10);
     border-radius: 6px;
 
     display: flex;
@@ -39,8 +39,8 @@ body {
 }
 
 .item:nth-child(3) {
-    border-top:  1px solid #E1E8EE;
-    border-bottom:  1px solid #E1E8EE;
+    border-top: 1px solid #E1E8EE;
+    border-bottom: 1px solid #E1E8EE;
 }
 
 .buttons {
@@ -48,7 +48,8 @@ body {
     padding-top: 30px;
     margin-right: 60px;
 }
-.delete-btn{
+
+.delete-btn {
     display: inline-block;
     Cursor: pointer;
 }
@@ -68,9 +69,15 @@ body {
 }
 
 @keyframes animate {
-    0%   { background-position: left;  }
-    50%  { background-position: right; }
-    100% { background-position: right; }
+    0% {
+        background-position: left;
+    }
+    50% {
+        background-position: right;
+    }
+    100% {
+        background-position: right;
+    }
 }
 
 .image {
@@ -93,15 +100,18 @@ body {
 .description span:first-child {
     margin-bottom: 5px;
 }
+
 .description span:last-child {
     font-weight: 300;
     margin-top: 8px;
     color: #86939E;
 }
+
 .quantity {
     padding-top: 20px;
     margin-right: 60px;
 }
+
 .quantity input {
     -webkit-appearance: none;
     border: none;
@@ -120,17 +130,20 @@ button[class*=btn] {
     border: none;
     cursor: pointer;
 }
+
 .minus-btn img {
     margin-bottom: 3px;
 }
+
 .plus-btn img {
     margin-top: 2px;
 }
 
 button:focus,
 input:focus {
-    outline:0;
+    outline: 0;
 }
+
 .total-price {
     width: 83px;
     padding-top: 27px;
@@ -146,14 +159,17 @@ input:focus {
         height: auto;
         overflow: hidden;
     }
+
     .item {
         height: auto;
         flex-wrap: wrap;
         justify-content: center;
     }
+
     .image img {
         width: 50%;
     }
+
     .image,
     .quantity,
     .description {
@@ -161,6 +177,7 @@ input:focus {
         text-align: center;
         margin: 6px 0;
     }
+
     .buttons {
         margin-right: 20px;
     }

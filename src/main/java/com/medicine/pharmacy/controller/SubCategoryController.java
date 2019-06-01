@@ -25,7 +25,7 @@ public class SubCategoryController {
 
 
     @GetMapping(value = "/subcategory/{id}")
-    public ModelAndView showPreparationBySubCategory(ModelAndView modelAndView, @PathVariable("id") Long id){
+    public ModelAndView showPreparationBySubCategory(ModelAndView modelAndView, @PathVariable("id") Long id) {
         SubCategoryPreparation subCategoryPreparation = subCategoryPreparationService.findById(id);
         List<Preparation> preparations = productService.findAllBySubCategoryId(subCategoryPreparation.getId());
 

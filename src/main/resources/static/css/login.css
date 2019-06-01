@@ -1,4 +1,4 @@
-body{
+body {
     margin: 0;
     padding: 0;
     background: url(https://www.enhancedcare.ca/wp-content/uploads/2016/02/pharmacy.jpg);
@@ -6,20 +6,20 @@ body{
     font-family: sans-serif;
 }
 
-.login-box{
+.login-box {
     width: 480px;
     height: 420px;
     color: #fff;
     top: 50%;
     left: 50%;
     position: absolute;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     box-sizing: border-box;
     padding: 60px 40px;
-    background: rgba(253, 254, 254,.6);
+    background: rgba(253, 254, 254, .6);
 }
 
-.login-box h1{
+.login-box h1 {
     float: center;
     font-size: 40px;
     text-align: center;
@@ -28,7 +28,7 @@ body{
     margin-bottom: 50px;
 }
 
-.textbox{
+.textbox {
     width: 100%;
     overflow: hidden;
     font-size: 20px;
@@ -38,13 +38,13 @@ body{
     border-bottom: 1px solid #4caf50;
 }
 
-.textbox i{
+.textbox i {
     width: 26px;
     float: left;
     text-align: center;
 }
 
-.textbox input[type="email"], input[type="password"]{
+.textbox input[type="email"], input[type="password"] {
     border: none;
     outline: none;
     background: none;
@@ -56,8 +56,7 @@ body{
 }
 
 
-.login-box input[type="submit"]
-{
+.login-box input[type="submit"] {
     margin-top: 20px;
     border: 2px solid #4caf50;
     outline: none;
@@ -69,14 +68,13 @@ body{
     padding: 5px;
 }
 
-.login-box input[type="submit"]:hover
-{
+.login-box input[type="submit"]:hover {
     cursor: pointer;
     background: green;
     color: white;
 }
 
-.login-box a{
+.login-box a {
     margin-top: 20px;
     text-decoration: none;
     font-size: 18px;
@@ -85,7 +83,6 @@ body{
     padding: 10px;
 }
 
-.login-box a:hover
-{
+.login-box a:hover {
     color: red;
 }
