@@ -15,8 +15,8 @@
             <p th:text="${preparation.description}"></p>
             <p th:text="${preparation.INN}"></p>
             <p th:text="${preparation.recipe}"></p>
+            <a th:href="@{/userproduct/addbasket/{id} (id = ${preparation.id})}">Reservation</a>
         </form>
-        <a th:href="@{/userproduct/addbasket/{id} (id = ${preparation.id})}">Reservation</a>
     </div>
     <a th:href="@{/home}">Back</a>
 </div>

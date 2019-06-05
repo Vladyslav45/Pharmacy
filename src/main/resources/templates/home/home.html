@@ -19,7 +19,8 @@
     <div sec:authorize="hasAuthority('ROLE_ADMIN')">
         <div class="container">
             <h2>Hi <span th:utext="${userName}"></span>, this is admin home page </h2>
-            <a th:href="@{/product}" class="button is-danger">Preparation</a>
+            <a th:href="@{/admin/product}" class="button is-danger">Preparation</a>
+            <a th:href="@{/admin/users}" class="button is-danger">User List</a>
             <a th:href="@{/logout}" class="button is-danger">Sing out</a>
         </div>
     </div>

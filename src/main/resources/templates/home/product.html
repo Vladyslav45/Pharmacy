@@ -4,7 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
+    <link href="/webjars/bootstrap/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+    <link href="/webjars/bootstrap/js/bootstrap.min.js"
+          th:href="@{/webjars/bootstrap/js/bootstrap.min.js}"
+          rel="stylesheet" media="screen" />
+    <script src="/webjars/jquery/jquery.min.js"
+            th:src="@{/webjars/jquery/jquery.min.js}"></script>
     <style>
         #customers {
             font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -36,7 +43,6 @@
 </head>
 <body>
 <h1>This table product</h1>
-
 <table class="table table-bordered table-striped" id="customers">
     <thead>
     <tr>
@@ -61,16 +67,16 @@
         <td th:text="${preparation.categoryPreparation.name}"></td>
         <td th:text="${preparation.subCategoryPreparation.name}"></td>
         <td>
-            <a th:href="@{/product/update/{id} (id = ${preparation.id})}">Update</a>
+            <a th:href="@{/admin/product/update/{id} (id = ${preparation.id})}">Update</a>
         </td>
         <td>
-            <a th:href="@{/product/delete/{id}(id = ${preparation.id})}">Delete</a>
+            <a th:href="@{/admin/product/delete/{id}(id = ${preparation.id})}">Delete</a>
         </td>
     </tr>
     </tbody>
 </table>
 
-<a th:href="@{/product/add}">Add product</a>
+<a th:href="@{/admin/product/add}">Add product</a>
 <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6">

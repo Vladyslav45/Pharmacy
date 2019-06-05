@@ -57,7 +57,7 @@ body {
 .delete-btn {
     width: 18px;
     height: 17px;
-    background: url("http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/256/Actions-edit-delete-icon.png") no-repeat center;
+    background: url("https://img.icons8.com/ios/50/000000/cancel.png") no-repeat center;
 }
 
 .is-active {
@@ -129,14 +129,6 @@ button[class*=btn] {
     border-radius: 6px;
     border: none;
     cursor: pointer;
-}
-
-.minus-btn img {
-    margin-bottom: 3px;
-}
-
-.plus-btn img {
-    margin-top: 2px;
 }
 
 button:focus,
