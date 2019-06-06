@@ -1,7 +1,9 @@
 package com.medicine.pharmacy.controller;
 
+import com.medicine.pharmacy.model.Basket;
 import com.medicine.pharmacy.model.Preparation;
 import com.medicine.pharmacy.model.User;
+import com.medicine.pharmacy.repository.BasketRepository;
 import com.medicine.pharmacy.service.BasketService;
 import com.medicine.pharmacy.service.ProductService;
 import com.medicine.pharmacy.service.UserService;
@@ -27,10 +29,20 @@ public class UserProductController {
 
     @GetMapping(value = "/userproduct/addbasket/{id}")
     public ModelAndView addProductToBasket(ModelAndView modelAndView, @PathVariable("id") Long id, Principal principal) {
-        Preparation preparation = productService.getById(id);
         User user = getUser(principal);
+        Preparation preparation = productService.getById(id);
+        Basket basket = basketService.findByPreparationId(preparation.getId());
 
-        basketService.addProduct(preparation, user);
+        if (basket == null){
+            basketService.addProduct(preparation, user);
+        } else if (basket.getPreparation().getName().equals(preparation.getName())){
+            int count = basket.getCount();
+            double price = basket.getPrice();
+            basket.setCount(++count);
+            basket.setPrice(price + basket.getPreparation().getPrice());
+            basketService.update(basket);
+        }
+
         modelAndView.setViewName("user/product");
 
         return modelAndView;

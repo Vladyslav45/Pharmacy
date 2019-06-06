@@ -20,8 +20,8 @@ public class BasketServiceImpl implements BasketService {
     @Override
     public void addProduct(Preparation preparation, User user) {
         Basket basket = new Basket();
-        basket.setCount(2);
-        basket.setPrice(14);
+        basket.setCount(1);
+        basket.setPrice(preparation.getPrice());
         basket.setUser(user);
         basket.setPreparation(preparation);
 
@@ -42,5 +42,15 @@ public class BasketServiceImpl implements BasketService {
     @Override
     public void deleteItemFromBasket(Long id) {
         basketRepository.deleteById(id);
+    }
+
+    @Override
+    public Basket update(Basket basket) {
+        return basketRepository.save(basket);
+    }
+
+    @Override
+    public Basket findByPreparationId(Long id) {
+        return basketRepository.findByPreparationId(id);
     }
 }

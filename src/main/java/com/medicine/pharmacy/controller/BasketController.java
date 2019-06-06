@@ -35,7 +35,9 @@ public class BasketController {
     public ModelAndView showBasket(ModelAndView modelAndView, Principal principal) {
         User user = getUser(principal);
         List<Basket> list = basketService.findAll(user.getId());
+        double suma = list.stream().mapToDouble(Basket::getPrice).sum();
         modelAndView.addObject("basketList", list);
+        modelAndView.addObject("allprice", suma);
         modelAndView.setViewName("basket/basket");
 
         return modelAndView;

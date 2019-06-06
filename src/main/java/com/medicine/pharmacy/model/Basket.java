@@ -21,7 +21,7 @@ public class Basket {
     private int count;
 
     @Column
-    private int price;
+    private Double price;
 
     @OneToOne
     @JoinColumn(name = "users_id")

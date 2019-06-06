@@ -15,4 +15,8 @@ public interface BasketService {
     void delete(Long id);
 
     void deleteItemFromBasket(Long id);
+
+    Basket update(Basket basket);
+
+    Basket findByPreparationId(Long id);
 }

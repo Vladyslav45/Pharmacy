@@ -55,8 +55,8 @@ body {
 }
 
 .delete-btn {
-    width: 18px;
-    height: 17px;
+    width: 20px;
+    height: 20px;
     background: url("https://img.icons8.com/ios/50/000000/cancel.png") no-repeat center;
 }
 
@@ -140,6 +140,7 @@ input:focus {
     width: 83px;
     padding-top: 27px;
     text-align: center;
+    float: right;
     font-size: 16px;
     color: #43484D;
     font-weight: 300;

@@ -1,13 +1,11 @@
 package com.medicine.pharmacy.model;
 
-import com.medicine.pharmacy.config.ValidPassword;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -33,7 +31,6 @@ public class User {
     private String email;
 
     @Column
-    @NotNull
     private String password;
 
     @Column
