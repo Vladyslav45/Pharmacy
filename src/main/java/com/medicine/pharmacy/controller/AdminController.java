@@ -80,7 +80,7 @@ public class AdminController {
     }
 
     @GetMapping(value = "/product/delete/{id}")
-    public ModelAndView deleteProduct(@PathVariable("id") Long id, BindingResult result) {
+    public ModelAndView deleteProduct(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView();
         Basket basket = basketRepository.findByPreparationId(id);
         if (basket.getPreparation().getId().equals(id)){

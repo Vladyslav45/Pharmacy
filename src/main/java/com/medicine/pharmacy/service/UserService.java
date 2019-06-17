@@ -13,4 +13,6 @@ public interface UserService {
     User findById(Long id);
 
     List<User> findAllByRole(String role);
+
+    User update(User user);
 }

@@ -29,6 +29,7 @@
         <div class="container">
             <h2>Hi <span th:utext="${userName}"></span>, this is user home page </h2>
             <a th:href="@{/category}" class="button is-danger">Preparation</a>
+            <a th:href="@{/update/{id} (id = ${user.id})}" class="button is-danger">Update</a>
             <a th:href="@{/logout}" class="button is-danger">Sing out</a>
         </div>
     </div>

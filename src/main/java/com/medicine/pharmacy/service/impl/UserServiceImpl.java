@@ -48,4 +48,15 @@ public class UserServiceImpl implements UserService {
     public List<User> findAllByRole(String role) {
         return userRepository.findAllByRoleRole(role);
     }
+
+    @Override
+    public User update(User user) {
+        User updateUser = userRepository.findById(user.getId()).orElse(null);
+        if (updateUser != null){
+            updateUser.setName(user.getName());
+            updateUser.setEmail(user.getEmail());
+            updateUser.setPhoneNumber(user.getPhoneNumber());
+        }
+        return userRepository.save(updateUser);
+    }
 }

@@ -10,6 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -35,7 +36,7 @@ public class UserController {
     }
 
     @GetMapping(value = "/signup")
-    public ModelAndView showFormRegistartion() {
+    public ModelAndView showFormRegistration() {
         ModelAndView modelAndView = new ModelAndView();
         User user = new User();
         modelAndView.addObject("user", user);
@@ -75,15 +76,25 @@ public class UserController {
         User user = userService.findUserByEmail(authentication.getName());
 
         modelAndView.addObject("userName", user.getName());
+        modelAndView.addObject("user", user);
         modelAndView.setViewName("home/home");
 
         return modelAndView;
     }
 
-    @GetMapping(value = "/access_denied")
-    public ModelAndView accessDenied() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("errors/access_denied");
+    @GetMapping(value = "/update/{id}")
+    public ModelAndView showFormUpdate(ModelAndView modelAndView, @PathVariable("id") Long id){
+        User user = userService.findById(id);
+        modelAndView.addObject("user", user);
+        modelAndView.setViewName("user/updateform");
+        return modelAndView;
+    }
+
+    @PostMapping(value = "/update/{id}")
+    public ModelAndView update(ModelAndView modelAndView, User user){
+        User updateUser = userService.update(user);
+        modelAndView.addObject("user", updateUser);
+        modelAndView.setViewName("redirect:/home");
 
         return modelAndView;
     }
