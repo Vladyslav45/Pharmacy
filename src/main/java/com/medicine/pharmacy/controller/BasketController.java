@@ -34,7 +34,7 @@ public class BasketController {
     @GetMapping(value = "/basket")
     public ModelAndView showBasket(ModelAndView modelAndView, Principal principal) {
         User user = getUser(principal);
-        List<Basket> list = basketService.findAll(user.getId());
+        List<Basket> list = basketService.findAllByUserId(user.getId());
         double suma = list.stream().mapToDouble(Basket::getPrice).sum();
         modelAndView.addObject("basketList", list);
         modelAndView.addObject("allprice", suma);
@@ -53,7 +53,7 @@ public class BasketController {
     @GetMapping(value = "/basket/buy")
     public ModelAndView buy(ModelAndView modelAndView, Principal principal) throws Exception {
         User user = getUser(principal);
-        List<Basket> basketList = basketService.findAll(user.getId());
+        List<Basket> basketList = basketService.findAllByUserId(user.getId());
         ByteArrayInputStream bis = pdfGenerator.generatePdf(basketList, user);
         buyEmailSender.sendWithAttachment(user.getEmail(), bis);
         basketService.delete(user.getId());

@@ -29,7 +29,7 @@ public class BasketServiceImpl implements BasketService {
     }
 
     @Override
-    public List<Basket> findAll(Long id) {
+    public List<Basket> findAllByUserId(Long id) {
         return basketRepository.findAllByUserId(id);
     }
 

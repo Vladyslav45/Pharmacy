@@ -10,7 +10,7 @@ public interface BasketService {
 
     void addProduct(Preparation preparation, User user);
 
-    List<Basket> findAll(Long id);
+    List<Basket> findAllByUserId(Long id);
 
     void delete(Long id);
 
