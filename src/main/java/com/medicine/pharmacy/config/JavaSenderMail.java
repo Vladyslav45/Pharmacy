@@ -1,6 +1,5 @@
-package com.medicine.pharmacy.gmailsender;
+package com.medicine.pharmacy.config;
 
-import com.medicine.pharmacy.service.pdfCreator.PdfGenerator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;

@@ -1,6 +1,6 @@
 package com.medicine.pharmacy.controller;
 
-import com.medicine.pharmacy.gmailsender.JavaSenderMail;
+import com.medicine.pharmacy.config.JavaSenderMail;
 import com.medicine.pharmacy.model.User;
 import com.medicine.pharmacy.service.UserService;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.medicine.pharmacy.service.pdfCreator;
+package com.medicine.pharmacy.config;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;

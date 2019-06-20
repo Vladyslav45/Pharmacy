@@ -1,11 +1,11 @@
 package com.medicine.pharmacy.controller;
 
-import com.medicine.pharmacy.gmailsender.JavaSenderMail;
+import com.medicine.pharmacy.config.JavaSenderMail;
 import com.medicine.pharmacy.model.Basket;
 import com.medicine.pharmacy.model.User;
 import com.medicine.pharmacy.service.BasketService;
 import com.medicine.pharmacy.service.UserService;
-import com.medicine.pharmacy.service.pdfCreator.PdfGenerator;
+import com.medicine.pharmacy.config.PdfGenerator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

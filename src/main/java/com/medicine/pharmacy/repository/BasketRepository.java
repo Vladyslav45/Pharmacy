@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface BasketRepository extends JpaRepository<Basket, Long> {
     List<Basket> findAllByUserId(Long id);
-    Long deleteAllByUserId(Long id);
+    void deleteAllByUserId(Long id);
     Basket findByPreparationId(Long id);
 }
