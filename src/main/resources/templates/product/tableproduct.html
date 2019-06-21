@@ -11,10 +11,8 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
-<h3>Add product</h3>
 <div class="container">
-    <form class="form-horizontal" role="form" method="post" th:href="@{/admin/product/add}" th:object="${preparation}"
-          enctype="multipart/form-data">
+    <form class="form-horizontal" role="form" method="post" th:href="@{/admin/product/add}" th:object="${preparation}">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
@@ -26,7 +24,7 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <h2>Register New Product</h2>
+                <h2>Add New Product</h2>
                 <hr>
             </div>
         </div>

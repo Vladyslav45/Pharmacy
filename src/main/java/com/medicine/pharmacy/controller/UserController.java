@@ -62,7 +62,7 @@ public class UserController {
             javaSenderMail.sendEmail(user.getEmail());
             modelAndView.addObject("msg", "User has been registered successfully!");
             modelAndView.addObject("user", new User());
-            modelAndView.setViewName("redirect:/login");
+            modelAndView.setViewName("log/signup");
         }
 
         return modelAndView;

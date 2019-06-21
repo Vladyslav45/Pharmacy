@@ -81,3 +81,25 @@ body {
     background: green;
     color: white;
 }
+.buttons{
+    text-align: center;
+    margin-top: 15px;
+}
+
+.buttons a[id="back"]{
+    margin-top: 30px;
+    border: 2px solid #4caf50;
+    outline: none;
+    width: 100%;
+    background: black;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+    padding: 8px;
+}
+
+.buttons a[id="back"]:hover {
+    cursor: pointer;
+    background: red;
+    color: white;
+}

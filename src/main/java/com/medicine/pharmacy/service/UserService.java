@@ -10,6 +10,8 @@ public interface UserService {
 
     void saveUser(User user);
 
+    void saveAdmin(User admin);
+
     User findById(Long id);
 
     List<User> findAllByRole(String role);

@@ -18,7 +18,13 @@
             <a th:href="@{/userproduct/addbasket/{id} (id = ${preparation.id})}">Reservation</a>
         </form>
     </div>
-    <a th:href="@{/home}">Back</a>
+
+    <a onclick="goBack()">Back</a>
 </div>
 </body>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 </html>

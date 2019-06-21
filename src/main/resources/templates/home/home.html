@@ -9,6 +9,35 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url(https://www.enhancedcare.ca/wp-content/uploads/2016/02/pharmacy.jpg);
+            background-size: cover;
+            font-family: sans-serif;
+        }
+        .container{
+            text-align: center;
+        }
+        .container a{
+            margin-top: 20px;
+            border: 2px solid #4caf50;
+            outline: none;
+            width: 100%;
+            background: black;
+            color: white;
+            font-size: 18px;
+            border-radius: 20px;
+            padding: 8px;
+        }
+        .container a:hover{
+            cursor: pointer;
+            background: green;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
@@ -18,19 +47,20 @@
 <div class="container">
     <div sec:authorize="hasAuthority('ROLE_ADMIN')">
         <div class="container">
-            <h2>Hi <span th:utext="${userName}"></span>, this is admin home page </h2>
+            <h2>Hi <span th:utext="${userName}"></span></h2>
             <a th:href="@{/admin/product}" class="button is-danger">Preparation</a>
             <a th:href="@{/admin/users}" class="button is-danger">User List</a>
             <a th:href="@{/update/{id} (id = ${user.id})}" class="button is-danger">Update</a>
-            <a th:href="@{/signup}" class="button is-danger">Dodanie nowego administratora</a>
+            <a th:href="@{/admin/add}" class="button is-danger">Add new administrator</a>
             <a th:href="@{/logout}" class="button is-danger">Sing out</a>
         </div>
     </div>
 
     <div sec:authorize="hasAuthority('ROLE_USER')">
         <div class="container">
-            <h2>Hi <span th:utext="${userName}"></span>, this is user home page </h2>
+            <h2>Hi <span th:utext="${userName}"></span></h2>
             <a th:href="@{/category}" class="button is-danger">Preparation</a>
+            <a th:href="@{/basket}">Basket</a>
             <a th:href="@{/update/{id} (id = ${user.id})}" class="button is-danger">Update</a>
             <a th:href="@{/logout}" class="button is-danger">Sing out</a>
         </div>

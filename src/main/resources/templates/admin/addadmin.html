@@ -2,8 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Sign up</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
           id="bootstrap-css">
@@ -12,13 +11,20 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link th:href="@{/css/signup.css}" href="/static/css/signup.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="alert alert-success" role="alert" th:if="${msg}" th:utext="${msg}">
+        </div>
+    </div>
+</div>
 <div class="signup">
     <img src="https://websait.ua/wp-content/uploads/2015/05/avatar.png" class="avatar">
-
-    <h1>Update account</h1>
-    <form th:action="@{/update/{id} (id = ${user.id})}" role="form" method="post" th:object="${user}">
+    <h1>Add new administration</h1>
+    <form th:action="@{/admin/add}" method="post" th:object="${admin}">
         <div class="textbox">
             <i class="fas fa-user" aria-hidden="true"></i>
             <input type="text" th:field="*{name}" class="form-control" placeholder="Name" required autofocus>
@@ -32,6 +38,13 @@
         </div>
 
         <div class="textbox">
+            <i class="fas fa-lock" aria-hidden="true"></i>
+            <input type="password" th:field="*{password}" class="form-control" placeholder="Password" required>
+            <span class="text-danger align-middle" th:if="${#fields.hasErrors('password')}"
+                  th:errors="*{password}"></span>
+        </div>
+
+        <div class="textbox">
             <i class="fas fa-phone" aria-hidden="true"></i>
             <input type="text" th:field="*{phoneNumber}" class="form-control" pattern="[0-9]{3}[0-9]{3}[0-9]{3}"
                    placeholder="123456789" required>
@@ -39,18 +52,11 @@
                   th:errors="*{phoneNumber}"></span>
         </div>
 
-        <input type="submit" value="Update">
+        <input type="submit" value="Registered">
+        <div class="buttons">
+            <a id="back" th:href="@{/home}">Back</a>
+        </div>
     </form>
-    <div class="buttons">
-        <a id="back" onclick="goBack()">Back</a>
-    </div>
-
 </div>
-
 </body>
-<script>
-    function goBack() {
-        window.history.back();
-    }
-</script>
 </html>

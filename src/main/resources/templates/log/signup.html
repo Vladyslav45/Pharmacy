@@ -16,9 +16,15 @@
 
 
 <body>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="alert alert-success" role="alert" th:if="${msg}" th:utext="${msg}">
+        </div>
+    </div>
+</div>
 <div class="signup">
     <img src="https://websait.ua/wp-content/uploads/2015/05/avatar.png" class="avatar">
-
     <h1>Registration account</h1>
     <form th:action="@{/signup}" method="post" th:object="${user}">
         <div class="textbox">
@@ -49,7 +55,15 @@
         </div>
 
         <input type="submit" value="Registered">
+        <div class="buttons">
+            <a id="back" onclick="goBack()">Back</a>
+        </div>
     </form>
 </div>
 </body>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 </html>

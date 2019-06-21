@@ -4,14 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css" rel="stylesheet"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
           id="bootstrap-css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
-    <link th:href="@{/css/shoppingbag.css}" href="/static/css/shoppingbag.css" rel="stylesheet" type="text/css">
+    <link href="/static/css/basket.css" th:href="@{/css/basket.css}" rel="stylesheet" type="text/css">
+
 </head>
 <body>
 
@@ -48,8 +50,8 @@
         <span th:text="${allprice}"></span>
     </div>
     <div class="buttons">
-        <a th:href="@{/basket/buy}">Buy</a>
-        <a th:href="@{/home}">Back</a>
+        <a id="buy" th:href="@{/basket/buy}">Buy</a>
+        <a id="back" th:href="@{/home}">Back</a>
     </div>
 </div>
 </body>

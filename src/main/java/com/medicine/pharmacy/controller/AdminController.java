@@ -1,16 +1,16 @@
 package com.medicine.pharmacy.controller;
 
+import com.medicine.pharmacy.config.JavaSenderMail;
 import com.medicine.pharmacy.model.*;
 import com.medicine.pharmacy.repository.BasketRepository;
-import com.medicine.pharmacy.repository.ProductRepository;
 import com.medicine.pharmacy.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -32,6 +32,9 @@ public class AdminController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private JavaSenderMail javaSenderMail;
 
     @GetMapping(value = "/users")
     public ModelAndView showUsers(ModelAndView modelAndView) {
@@ -56,10 +59,6 @@ public class AdminController {
         ModelAndView modelAndView = new ModelAndView();
         List<CategoryPreparation> categoryPreparations = categoryPreparationService.findAll();
         modelAndView.addObject("listCategory", categoryPreparations);
-//        categoryPreparations.forEach(categoryPreparation -> {
-//            List<SubCategoryPreparation> subCategoryPreparation = subCategoryPreparationService.findAllByCategoryId(categoryPreparation.getId());
-//            modelAndView.addObject("listSubCategory", subCategoryPreparation);
-//        });
         List<SubCategoryPreparation> subCategoryPreparations = subCategoryPreparationService.findAll();
         modelAndView.addObject("listSubCategory", subCategoryPreparations);
         modelAndView.addObject("preparation", new Preparation());
@@ -115,6 +114,37 @@ public class AdminController {
         Preparation updatePreparation = productService.update(preparation);
         modelAndView.addObject("product", updatePreparation);
         modelAndView.setViewName("redirect:/product");
+
+        return modelAndView;
+    }
+
+    @GetMapping(value = "/add")
+    public ModelAndView showFormAddAdministration(ModelAndView modelAndView) {
+        User admin = new User();
+        modelAndView.addObject("admin", admin);
+        modelAndView.setViewName("admin/addadmin");
+
+        return modelAndView;
+    }
+
+    @PostMapping(value = "/add")
+    public ModelAndView createAdmin(ModelAndView modelAndView, @Valid User admin, BindingResult result) throws Exception {
+
+        User createAdmin = userService.findUserByEmail(admin.getEmail());
+
+        if (createAdmin != null) {
+            result.rejectValue("email", "error.log", "This email already exists!");
+        }
+
+        if (result.hasErrors()) {
+            modelAndView.setViewName("admin/addadmin");
+        } else {
+            userService.saveAdmin(admin);
+            javaSenderMail.sendEmail(admin.getEmail());
+            modelAndView.addObject("msg", "Admin has been registered successfully!");
+            modelAndView.addObject("admin", new User());
+            modelAndView.setViewName("admin/addadmin");
+        }
 
         return modelAndView;
     }
