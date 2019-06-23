@@ -35,19 +35,19 @@
 
             <div class="quantity">
                 <h5>Count</h5>
-                <span th:text="${basketItem.count}"></span>
+                <span th:text="${basketItem.count} + szt."></span>
             </div>
 
             <div class="item-price">
-                <h5>zł</h5>
-                <span th:text="${basketItem.preparation.price}"></span>
+                <h5>Price</h5>
+                <span th:text="${basketItem.preparation.price} + zł"></span>
             </div>
         </div>
     </div>
 
     <div class="total-price">
         <h5>All price</h5>
-        <span th:text="${allprice}"></span>
+        <span th:text="${allprice} + zł"></span>
     </div>
     <div class="buttons">
         <a id="buy" th:href="@{/basket/buy}">Buy</a>

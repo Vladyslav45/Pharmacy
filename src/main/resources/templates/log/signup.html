@@ -56,14 +56,9 @@
 
         <input type="submit" value="Registered">
         <div class="buttons">
-            <a id="back" onclick="goBack()">Back</a>
+            <a id="back" th:href="@{/home}">Back</a>
         </div>
     </form>
 </div>
 </body>
-<script>
-    function goBack() {
-        window.history.back();
-    }
-</script>
 </html>

@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Size;
 
 @Getter
 @Setter
@@ -18,7 +20,7 @@ public class Preparation {
     @Column
     private String name;
 
-    @Column
+    @Column(length = 2048)
     private String description;
 
     @Column

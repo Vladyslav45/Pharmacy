@@ -93,8 +93,9 @@ public class UserController {
     @PostMapping(value = "/update/{id}")
     public ModelAndView update(ModelAndView modelAndView, User user){
         User updateUser = userService.update(user);
+        modelAndView.addObject("msg", "User has been successfully update!");
         modelAndView.addObject("user", updateUser);
-        modelAndView.setViewName("redirect:/home");
+        modelAndView.setViewName("user/updateform");
 
         return modelAndView;
     }

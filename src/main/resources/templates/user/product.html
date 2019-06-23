@@ -7,18 +7,21 @@
     <link th:href="@{/css/product.css}" href="/static/css/product.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div class="card">
-    <div class="product-card" th:each="preparation : ${preparationList}">
-        <form>
-            <h1 th:text="${preparation.name}"></h1>
-            <p class="price" th:text="${preparation.price}"></p>
-            <p th:text="${preparation.description}"></p>
-            <p th:text="${preparation.INN}"></p>
-            <p th:text="${preparation.recipe}"></p>
-            <a th:href="@{/userproduct/addbasket/{id} (id = ${preparation.id})}">Reservation</a>
-        </form>
+<div class="container">
+    <div class="card">
+        <div class="product-card" th:each="preparation : ${preparationList}">
+            <form>
+                <h1 th:text="${preparation.name}"></h1>
+                <p class="price" th:text="${preparation.price} + zł"></p>
+                <meta name="description" th:text="${preparation.description}"/>
+                <p th:text="'Internation name:' + ' ' + ${preparation.INN}"></p>
+                <p th:text="'Recipe:' + ' ' + ${preparation.recipe}"></p>
+                <a th:href="@{/userproduct/addbasket/{id} (id = ${preparation.id})}">Reservation</a>
+            </form>
+        </div>
     </div>
-
+</div>
+<div class="button">
     <a onclick="goBack()">Back</a>
 </div>
 </body>

@@ -22,7 +22,7 @@ public class AdminController {
     private ProductService productService;
 
     @Autowired
-    private BasketRepository basketRepository;
+    private BasketService basketService;
 
     @Autowired
     private CategoryPreparationService categoryPreparationService;
@@ -72,7 +72,7 @@ public class AdminController {
         ModelAndView modelAndView = new ModelAndView();
 
         productService.addProduct(preparation);
-        modelAndView.addObject("msg", "Preparation has been add successfully!");
+        modelAndView.addObject("msg", "Drug has been add successfully!");
         modelAndView.addObject("preparation", preparation);
         modelAndView.setViewName("product/tableproduct");
         return modelAndView;
@@ -81,15 +81,14 @@ public class AdminController {
     @GetMapping(value = "/product/delete/{id}")
     public ModelAndView deleteProduct(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView();
-        Basket basket = basketRepository.findByPreparationId(id);
-        if (basket.getPreparation().getId().equals(id)){
-            modelAndView.addObject("message", "Preparation has on reservation");
-            modelAndView.setViewName("home/product");
-        } else {
+        Basket basket = basketService.findByPreparationId(id);
+        if (basket == null){
             productService.delete(id);
             modelAndView.setViewName("redirect:/admin/product");
+        } else {
+            modelAndView.addObject("message", "Drug has on reservation");
+            modelAndView.setViewName("home/product");
         }
-
         return modelAndView;
     }
 
@@ -112,8 +111,9 @@ public class AdminController {
         ModelAndView modelAndView = new ModelAndView();
 
         Preparation updatePreparation = productService.update(preparation);
+        modelAndView.addObject("msg", "Drug has been successfully update!");
         modelAndView.addObject("product", updatePreparation);
-        modelAndView.setViewName("redirect:/product");
+        modelAndView.setViewName("product/updateproduct");
 
         return modelAndView;
     }

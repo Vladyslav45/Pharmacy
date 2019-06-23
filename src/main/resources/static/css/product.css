@@ -5,27 +5,21 @@ body {
     background-size: cover;
     font-family: sans-serif;
 }
-
+.container{
+    height: 800px;
+    width: 100%;
+    background: rgba(253, 254, 254, .6);
+}
 .card {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-flow: row wrap;
-    justify-content: space-around;
+    font-family: Tahoma, Arial, sans-serif;
     text-align: center;
-    background: rgba(253, 254, 254, .5);
-    font-family: arial;
+}
+
+.product-card{
+    text-align: center;
 }
 
 .product-card h1, p {
-    width: 40px;
-    height: 40px;
-    line-height: 2px;
     font-weight: bold;
     text-align: center;
 }
@@ -52,8 +46,12 @@ body {
     font-size: 22px;
 }
 
-.card a {
-    margin-top: 20px;
+.button{
+    text-align: center;
+}
+
+.button a {
+    margin-top: 60px;
     border: 2px solid #4caf50;
     outline: none;
     width: 100%;
@@ -64,7 +62,7 @@ body {
     padding: 5px;
 }
 
-.card a:hover {
+.button a:hover {
     cursor: pointer;
     background: red;
     color: white;

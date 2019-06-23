@@ -3,13 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Subcategory Product</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css" rel="stylesheet"
-          id="bootstrap-css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <title>Title</title>
     <style>
         body {
             margin: 0;
@@ -18,9 +12,10 @@
             background-size: cover;
             font-family: sans-serif;
         }
-        .container {
-            width: 500px;
-            height: 700px;
+
+        .alert {
+            width: 480px;
+            height: 420px;
             color: #fff;
             top: 50%;
             left: 50%;
@@ -28,27 +23,33 @@
             transform: translate(-50%, -50%);
             box-sizing: border-box;
             padding: 60px 40px;
-            background: rgba(253, 254, 254, .6);
         }
-        .container h1{
+
+        .alert span{
+            width: 480px;
+            font-size: 60px;
             text-align: center;
-            color: black;
+            background: green;
+            color: white;
         }
-        .btn {
-            margin-top: 20px;
+
+        .button{
             text-align: center;
+            margin-top: 30px;
         }
-        .btn a{
+
+        .button a {
             border: 2px solid #4caf50;
             outline: none;
             width: 100%;
             background: black;
             color: white;
-            font-size: 18px;
+            font-size: 25px;
             border-radius: 20px;
             padding: 5px;
         }
-        .btn a:hover{
+
+        .button a:hover {
             cursor: pointer;
             background: red;
             color: white;
@@ -56,19 +57,10 @@
     </style>
 </head>
 <body>
-<div class="container">
-    <table>
-        <tbody>
-        <tr th:each="subcategory : ${subcategoryList}">
-            <td>
-                <a th:href="@{/subcategory/{id} (id = ${subcategory.id})}">
-                    <h1 th:text="${subcategory.name}"></h1>
-                </a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-    <div class="btn">
+<div class="alert">
+        <span th:if="${msg}" th:utext="${msg}">
+        </span>
+    <div class="button">
         <a onclick="goBack()">Back</a>
     </div>
 </div>

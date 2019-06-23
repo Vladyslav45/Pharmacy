@@ -14,6 +14,13 @@
     <link th:href="@{/css/signup.css}" href="/static/css/signup.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="alert alert-success" role="alert" th:if="${msg}" th:utext="${msg}">
+        </div>
+    </div>
+</div>
 <div class="signup">
     <img src="https://websait.ua/wp-content/uploads/2015/05/avatar.png" class="avatar">
 
@@ -42,15 +49,10 @@
         <input type="submit" value="Update">
     </form>
     <div class="buttons">
-        <a id="back" onclick="goBack()">Back</a>
+        <a id="back" th:href="@{/home}">Back</a>
     </div>
 
 </div>
 
 </body>
-<script>
-    function goBack() {
-        window.history.back();
-    }
-</script>
 </html>

@@ -48,11 +48,11 @@ public class PdfGenerator {
 
         basketList.forEach(basket -> {
             addRow(table, basket.getPreparation().getName());
-            addRow(table, String.valueOf(basket.getPreparation().getPrice()));
+            addRow(table, basket.getPreparation().getPrice() + "zl");
             addRow(table, basket.getPreparation().getINN());
             addRow(table, String.valueOf(basket.getPreparation().isRecipe()));
-            addRow(table, String.valueOf(basket.getCount()));
-            addRow(table, String.valueOf(basket.getPrice()));
+            addRow(table, basket.getCount() + "szt.");
+            addRow(table, basket.getPrice() + "zl");
         });
 
         paragraph.add(table);
@@ -103,7 +103,6 @@ public class PdfGenerator {
 
     private void addTableHeader(PdfPTable table, String headerTitle) {
         PdfPCell header = new PdfPCell();
-//        header.setBackgroundColor(BaseColor.LIGHT_GRAY);
         header.setBorderWidth(2);
         header.setPhrase(new Phrase(headerTitle));
         table.addCell(header);
