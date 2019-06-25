@@ -11,11 +11,33 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link th:href="@{/css/login.css}" href="/static/css/login.css" rel="stylesheet" type="text/css">
     <title>Sign in</title>
+
+    <style>
+        .alert-danger p{
+            background: red;
+            color: white;
+            text-align: center;
+            font-size: 45px;
+        }
+
+        .alert-success p {
+            background: green;
+            color: white;
+            text-align: center;
+            font-size: 45px;
+        }
+    </style>
 </head>
 <body>
+<div class="alert-danger">
+    <p th:if="${message}" th:text="${message}"></p>
+</div>
 
+<div class="alert-success">
+    <p th:if="${messagelogout}" th:text="${messagelogout}"></p>
+</div>
 <div class="login-box">
-    <h1>Login</h1>
+    <h1>Sign in</h1>
     <form th:action="@{/login}" method="post">
 
         <div class="textbox">

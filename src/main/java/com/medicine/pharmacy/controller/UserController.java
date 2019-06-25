@@ -9,10 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
@@ -28,9 +25,16 @@ public class UserController {
     private JavaSenderMail javaSenderMail;
 
     @GetMapping(value = {"/", "/login"})
-    public ModelAndView login() {
+    public ModelAndView login(@RequestParam(value = "error", required = false) String error,
+                              @RequestParam(value = "logout", required = false) String logout) {
         ModelAndView modelAndView = new ModelAndView();
 
+        if (error != null) {
+            modelAndView.addObject("message", "Invalid login or password");
+        }
+        if (logout != null) {
+            modelAndView.addObject("messagelogout", "You've been logged out successfully");
+        }
         modelAndView.setViewName("log/login");
         return modelAndView;
     }
