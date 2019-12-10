@@ -2,7 +2,6 @@ package com.medicine.pharmacy.controller;
 
 import com.medicine.pharmacy.config.JavaSenderMail;
 import com.medicine.pharmacy.model.*;
-import com.medicine.pharmacy.repository.BasketRepository;
 import com.medicine.pharmacy.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,8 +80,8 @@ public class AdminController {
     @GetMapping(value = "/product/delete/{id}")
     public ModelAndView deleteProduct(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView();
-        Basket basket = basketService.findByPreparationId(id);
-        if (basket == null){
+        Basket basketItem = basketService.findByPreparationId(id);
+        if (basketItem == null){
             productService.delete(id);
             modelAndView.setViewName("redirect:/admin/product");
         } else {

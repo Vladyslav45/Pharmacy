@@ -30,7 +30,7 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView();
 
         if (error != null) {
-            modelAndView.addObject("message", "Invalid login or password");
+            modelAndView.addObject("message", "Invalid email or password");
         }
         if (logout != null) {
             modelAndView.addObject("messagelogout", "You've been logged out successfully");
